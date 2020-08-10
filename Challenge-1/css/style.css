@@ -14,7 +14,7 @@ html{
 
 .container{
     width: 100%;
-    display: flex;
+   display: flex;
     /* border: 2px solid black; */
     flex-direction: column;
 }
@@ -52,13 +52,14 @@ ul{
     list-style: none;
 }
 li{
+    
     margin:0 15px 0 15px;
     width: max-content;
 }
 a{
     font-size: 1rem;
     padding: 3px;
-    text-decoration: none;
+    /*/text-decoration: none;*/
     color: black;}
 
 .links a{
@@ -130,7 +131,7 @@ box-shadow: 2px 2px 3px var(--shadow--color);
     display: flex;
     width: 80%;
     align-self: center;
-    border-radius: 5px;
+    border-radius:5px;
     box-shadow: 2px 2px 5px var(--shadow--color);
     margin-bottom: 2em;
     

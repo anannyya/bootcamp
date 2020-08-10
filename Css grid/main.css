@@ -1,0 +1,41 @@
+.html{
+    background-color: white;
+    color: whitesmoke;
+}
+.box1{
+    background-color: red;
+    text-align: center;
+    grid-area: box1;
+    border:wheat;
+}
+.box2{
+    background-color: blue;
+    text-align: center;
+    grid-area: box2;
+    border:wheat;
+}
+.box3{
+    background-color:greenyellow;
+    text-align: center;
+    grid-area: box3;
+    border:wheat;
+}
+h3{
+    color: whitesmoke;
+}
+img{
+    width: 100%; 
+   
+}
+.box2 img{
+ height:89%;
+
+}
+.grid{
+    height: 100vh;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "box1 box2"
+    "box3 box3";
+}
