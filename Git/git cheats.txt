@@ -17,6 +17,7 @@ git commit -m "any message related to commit"
 -->//to check status of req
 git status
 
+
 -->//to connect remote repository to github repo
 git remote add origin URL_Of_Gihub_repo
 
