@@ -4,10 +4,17 @@
     box-sizing: border-box;
 }
 body{
-    background-image: linear-gradient(120deg,#e2c35d,#d88771) ;
+    background-image:url('bg.jpg'); /*linear-gradient(120deg,#e2c35d,#d88771) ;*/
     color: beige;
     font-family: "Poppins",sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+    /*filter: blur(2px);
+    -webkit-filter: blur(2px);*/
 }
 header,form{
     min-height: 20vh;

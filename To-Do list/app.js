@@ -6,6 +6,7 @@ const filterOption =document.querySelector('.filter-todo');
 
 
 //Event Listners
+document.addEventListener("DOMContentLoaded",getTodos);
 todoButton.addEventListener('click',addTodo); //calls the function addTodo
 todoList.addEventListener('click',deleteCheck); //calls the function deletecheck
 filterOption.addEventListener('click',filterTodo);
@@ -24,7 +25,11 @@ function addTodo(event){
     newTodo.innerText=todoInput.value;  //todo tasks(enter the input then it will be added to list)
     newTodo.classList.add('todo-item'); //class name .todo-item
     todoDiv.appendChild(newTodo);       //mtlb we're including newTodo in todoDiv
+
     
+    // add todo to local storage
+    saveLocalTodos(todoInput.value);
+
     //Check mark button
     const completedButton=document.createElement('button');
     completedButton.innerHTML='<i class="fas fa-check"></i>';   //it won't work with innerText cz it's Html
@@ -50,8 +55,9 @@ function deleteCheck(e){
           const todo= item.parentElement; 
            //Animation
           todo.classList.add('fall');
-          todo.addEventListener("transitioned",function(){ //waits for transition and then deletes the (parent element) todo list
-              todo.remove();   
+          removeLocalTodos(todo);
+          todo.addEventListener("transitionend",function() {
+              todo.remove();
           });
           //todo.remove(); //removes the parent element
      }
@@ -91,26 +97,26 @@ function filterTodo(e) {
   // local storage 
 
 function saveLocalTodos(todo){
-    //check --already things
+    //check --do i already have things
     let todos;
     if(localStorage.getItem('todos') === null){
-      todos=[]
+      todos=[];
     }
     else{
-      todos = JSON.parse(localStorage.getItem('todos'))
+      todos = JSON.parse(localStorage.getItem('todos'));
     }
   
     todos.push(todo);
     localStorage.setItem('todos',JSON.stringify(todos));
   }
   
-  function getTodos() {
+  function getTodos() { 
     let todos;
     if(localStorage.getItem('todos') === null){
-      todos=[]
+      todos=[];
     }
     else{
-      todos = JSON.parse(localStorage.getItem('todos'))
+      todos = JSON.parse(localStorage.getItem('todos'));
     }
     todos.forEach((todo)=>{
   // -----------
@@ -137,11 +143,11 @@ function saveLocalTodos(todo){
     // append to-do list
     todoList.appendChild(todoDiv);
   
-  })
+  });
   }
   
   function removeLocalTodos(todo) {
-    //check --already things
+    //check --things what i already have 
     let todos;
     if(localStorage.getItem('todos') === null){
       todos=[]
@@ -151,5 +157,5 @@ function saveLocalTodos(todo){
     }
     const todoIndex = todo.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex),1);
-    localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('todos',JSON.stringify(todos)); //deletes element
   } 
