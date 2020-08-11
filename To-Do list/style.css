@@ -22,7 +22,8 @@ header,form{
     justify-content: center;
     align-items: center;
 }
-form input,form button{
+form input,
+form button{
     /*border-radius: 0.3rem;*/
     padding: 0.5rem;
     font-size: 2rem;
@@ -30,7 +31,7 @@ form input,form button{
     background: white;
 }
 form button{
-    color:#d88771 ;
+    color:#d88772 ;
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
